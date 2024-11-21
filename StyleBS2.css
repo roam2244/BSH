@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", "sans-relif";
+    box-sizing: border-box;
+    transition: all.2s linear;
+    text-decoration: none;
+    border: none;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7em;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+}
+
+header {
+    position:fixed; 
+    top:0;
+    left:0;
+    right:0;
+    z-index: 20;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 3%;
+    height: 50px;
+    box-shadow: 0 0 10px 0 #ef1513;
+    margin-bottom: 50px;
+}
+
+header .logo{
+    color:#ef1513;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+header .logo span{
+    color:black;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+ list-style: none;
+ margin: 0 15px;   
+}
+
+.menu li a {
+    font-size: 15px;
+    color: black;
+    font-weight: 300;
+    transition: 0.2s;
+}
+
+.menu li a:hover {
+    color: #ef1513;
+}
+
+header button{
+    background-color: #ef1513;
+    cursor: pointer;
+    color: #fff;
+    padding: 5px 25px;
+}
+
+header button:hover{
+    color: black;
+}
+
+#home {
+    margin-top: 50px;
+    height: calc(100vh - 50px);
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #ef1513;
+}
+
+#home .left{
+    width: 55%;
+}
+
+#home .left h1{
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+#home .left h1 span {
+    color: #ef1513
+}
+
+#home .left p{
+    margin-bottom: 30px;
+    color: #999;
+    font-size: 14px;
+}
+
+#home .right{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .right img {
+    width: 100%;
+}
+
+#home2 .left{
+    width: 35%;
+}
+
+#home2 .left img{
+    width:60%;
+}
+
+
+#home2 {
+    margin-top: -100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home2 .right{
+    width: 40%;
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home2 .right h1{
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+#home2 .right h1 span {
+    color: #ef1513
+}
+
+#home2 .right p{
+    margin-bottom: 30px;
+    color: #999;
+    font-size: 14px;
+}
+
+footer {
+    background-color: #ef1513;
+    margin-top: 20px;
+    padding: 40px;
+}
+
+footer p{
+    color:#fff;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+footer .lycee p{
+    font-size: 20px;
+    color: #000000;
+}
+
+footer p1{
+    font-size: 16px;
+    color: black;
+}
+
+footer a{
+    font-size: 16px;
+    color: #ef1513;
+}
+
+footer a:hover{
+    color: #000000;
+}
+
+footer .cadre{
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    text-align: center;
+}
+
+footer .lycee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width:60%;
+    border-radius: 50px;
+}
+
+form {
+    /* On centre le formulaire */
+    font-size: 25px;
+    margin-top: 50px;
+    margin: 80px auto;
+    width: 1000px;
+    /* Le contour du formulaire */
+    padding: 1em;
+    border: 2px solid #ef1513;
+    border-radius: 1em;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  form li + li {
+    margin-top: 1em;
+  }
+  
+  label {
+    /* Taille et alignement uniformes */
+    display: inline-block;
+    width: 500px;
+    text-align: right;
+  }
+  
+  input {
+    /* On s'assure que les champs texte ont la même police
+       Par défaut, les zones de texte ont une police à chasse
+       fixe. */
+    font: 1em sans-serif;
+  
+    /* Taille uniforme pour des champs */
+    width: 400px;
+    box-sizing: border-box;
+  
+    /* On utilise la même bordure que pour le formulaire */
+    border: 1px solid #ef1513;
+  }
+  
+  input:focus {
+    /* On rajoute une mise en avant pour les éléments avec
+       le focus. */
+    border-color: #ef1513;
+  }
+  
+  .button {
+    /* On aligne les boutons avec les champs texte. */
+    padding-left: 100px; /* La même taille que les libellés */
+  }
+  
+  button {
+    /* Une marge supplémentaire représentant approximativement
+       le même espace qu'entre les libellés et les champs. */
+    margin-left: 0.5em;
+  }
+  
+ form button {
+    background-color: #ef1513; /* Vert élégant */
+    margin : 0 45%;
+    margin-top: 20px;
+    color: white; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    padding: 10px 20px; /* Ajoute du padding pour une meilleure taille */
+    font-size: 16px; /* Taille de la police */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de la souris en forme de main */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: background-color 0.3s, transform 0.2s; /* Animation de transition */
+}
+
+button:hover {
+    background-color: #000000; /* Vert un peu plus sombre au survol */
+    transform: scale(1.05); /* Léger agrandissement au survol */
+}
+
+button:active {
+    background-color: #ef1513; /* Vert encore plus sombre au clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombre réduite au clic */
+    transform: scale(0.98); /* Légère réduction au clic */
+}
+
+.output {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.team {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.team p {
+    margin: 5px 0;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brawl Hoche</title>
+    <link rel="stylesheet" href="StyleBS2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <p>BS<span>Hoche</span></p>
+        </div>
+    <ul class="menu">
+        <li><a href="BrawlHoche.html">Accueil</a></li>    
+        <li><a href="https://play.google.com/store/apps/details?id=com.supercell.brawlstars&hl=fr" target="_blank">Installer Brawl Stars</a></li>
+        <li><a href="...">Des questions ?</a></li>
+    </ul>
+    <button class="login_btn">...</button>
+    </header>
+    <form id="teamForm">
+        <ul>
+            <li>
+                <label for="equipen">Nom de l'équipe :</label>
+                <input type="text" id="nequipe" name="equipe" required />
+            </li>
+            <li>
+                <label for="name1">Joueur 1 :</label>
+                <input type="text" id="name1" name="user1" required />
+            </li>
+            <li>
+                <label for="name2">Joueur 2 :</label>
+                <input type="text" id="name2" name="user2" required />
+            </li>
+            <li>
+                <label for="name3">Joueur 3 :</label>
+                <input type="text" id="name3" name="user3" required />
+            </li>
+        </ul>
+        <button type="submit">Ajouter l'équipe</button>
+    </form>
+
+    <h2>Liste des équipes enregistrées :</h2>
+    <div id="output"></div>
+
+    <script>
+        // Configuration Firebase (remplace par tes propres informations)
+        const firebaseConfig = {
+            apiKey: "TON_API_KEY",
+            authDomain: "BSHo.firebaseapp.com",
+            databaseURL: "https://BSHo.firebaseio.com",
+            projectId: "BSHo",
+            storageBucket: "BSHo.appspot.com",
+            messagingSenderId: "TON_MESSAGING_SENDER_ID",
+            appId: "TON_APP_ID",
+            measurementId: "TON_MEASUREMENT_ID"
+        };
+
+        // Initialiser Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Ajouter une équipe à la base de données Firebase
+        async function addTeam(event) {
+            event.preventDefault();
+            const equipe = document.getElementById("nequipe").value;
+            const user1 = document.getElementById("name1").value;
+            const user2 = document.getElementById("name2").value;
+            const user3 = document.getElementById("name3").value;
+
+            // Enregistrer l'équipe dans la base de données Firebase
+            const newTeamRef = database.ref('teams').push();
+            await newTeamRef.set({
+                equipe,
+                joueur1: user1,
+                joueur2: user2,
+                joueur3: user3
+            });
+
+            alert("Équipe ajoutée !");
+            fetchTeams();  // Met à jour la liste des équipes affichées
+        }
+
+        // Récupérer toutes les équipes de Firebase
+        function fetchTeams() {
+            const teamsRef = database.ref('teams');
+            teamsRef.once('value', (snapshot) => {
+                const teams = snapshot.val();
+                const outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = '';
+
+                for (const key in teams) {
+                    const team = teams[key];
+                    outputDiv.innerHTML += `
+                        <div>
+                            <h3>${team.equipe}</h3>
+                            <p>Joueur 1: ${team.joueur1}</p>
+                            <p>Joueur 2: ${team.joueur2}</p>
+                            <p>Joueur 3: ${team.joueur3}</p>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Charger les équipes au démarrage de la page
+        document.addEventListener('DOMContentLoaded', fetchTeams);
+
+        // Ajouter l'équipe lors de la soumission du formulaire
+        document.getElementById('teamForm').addEventListener('submit', addTeam);
+    </script>
+    <footer>
+        <div class="lycee">
+            <p>Conditions : </p>
+            <div class="cadre">    
+                <p1>Les participants doivent être au </p1>
+                <a href="https://lyc-hoche-versailles.ac-versailles.fr/" target="_blank">lycée Hoche.</a>
+            </div>
+        </div>
+        <p>© 2024 - Tous les droits sont réservés. </p>
+    </footer>
+</body>
+</html>
